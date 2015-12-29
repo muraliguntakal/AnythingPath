@@ -1,3 +1,0 @@
-<design:component label="MyTopics">
-	    <design:attribute name="MyTopics" label="MyTopics" description="Component Title" />
-</design:component>
