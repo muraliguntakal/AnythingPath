@@ -1,0 +1,30 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId,force:hasSObjectName" controller="AnythingPath">
+    
+    <ltng:require styles="/resource/slds0121/assets/styles/salesforce-lightning-design-system.css"/>
+    
+    <!--internal attributes-->
+    <aura:attribute name="recordId" type="Id"/>
+    <aura:attribute name="sObjectName" type="string"/>
+    
+    <!--design attributes, for the app/community builders-->
+    <aura:attribute name="pathField" type="string" required="true" default="Status"/>
+    <aura:attribute name="clickToChange" type="boolean" required="true" default="Status"/>
+
+    <!--change handlers-->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+	    
+    <div class="slds-tabs--path slds-p-around--small" role="application tablist">
+        <ul class="slds-tabs--path__nav" role="presentation">
+            <aura:iteration items="{!v.pathObjects}" var="step">
+                <li class="{!'slds-tabs--path__item slds-' + step.statusClass}" role="presentation">
+                    <a class="slds-tabs--path__link" aria-selected="{!step.ariaSelected}" tabindex="{!step.tabIndex}" role="tab" aria-live="assertive"  >
+                        <c:svgIcon containerClass="slds-tabs--path__stage" svgPath="/resource/slds0121/assets/icons/utility-sprite/svg/symbols.svg#check" category="utility" size="x-small" name="check">
+                            <span class="slds-assistive-text">Stage Complete</span>
+                        </c:svgIcon>
+                        <span class="slds-tabs--path__title" title="{!step.value}" onclick="{!c.handleClick}">{!step.label}</span>
+                    </a>
+                </li>
+            </aura:iteration>            
+        </ul>        
+    </div>
+</aura:component>

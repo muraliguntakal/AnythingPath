@@ -1,0 +1,5 @@
+<design:component label="Knowledge Quick Search">
+     <design:attribute name="searchPlaceholder" label="Search Box Instructions" />
+	 <design:attribute name="contactSupport" label="Allow Contact Support" />
+     <design:attribute name="contactSupportURL" label="Contact Support Path" />
+</design:component>
