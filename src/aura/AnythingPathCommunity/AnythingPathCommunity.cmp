@@ -1,9 +1,9 @@
-<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId,force:hasSObjectName" controller="AnythingPath">
+<aura:component implements="forceCommunity:availableForAllPageTypes" controller="AnythingPath">
     
     <ltng:require styles="/resource/slds0121/assets/styles/salesforce-lightning-design-system.css"/>
     
     <!--internal attributes-->
-    <aura:attribute name="recordId" type="Id"/>
+    <aura:attribute name="recordId" type="string"/>
     <aura:attribute name="sObjectName" type="string"/>
     
     <!--design attributes, for the app/community builders-->
