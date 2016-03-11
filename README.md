@@ -1,6 +1,6 @@
-Adds sales-path like visualization to any custom object, where the stages are a picklist field.
+**Adds sales-path like visualization to any custom object, where the stages are a picklist field.**
 
-Does
+###Does
 
 * show the stages, in the order of the picklist
 * work on standard or custom objects
@@ -9,7 +9,7 @@ Does
 * work in Community Templates (Napili, etc) but you have to also tell it which object (Something__c)
 * have a whole bunch of use within Salesforce
 
-Doesn't
+###Doesn't
 
 * verify that it's actually a picklist field
 * verify that it's actually a field at all :)
