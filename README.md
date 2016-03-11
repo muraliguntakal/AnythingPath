@@ -1,5 +1,7 @@
 **Adds sales-path like visualization to any custom object, where the stages are a picklist field.**
 
+Tongue-in-cheek [demo video](https://www.youtube.com/watch?v=Zoqll5THApU) that was done for internal Salesforce humor.
+
 ###Does
 
 * show the stages, in the order of the picklist
