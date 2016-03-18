@@ -1,3 +1,5 @@
+<!--current package URL https://login.salesforce.com/packaging/installPackage.apexp?p0=04t15000000Nx36 -->
+
 <aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId,force:hasSObjectName" controller="AnythingPath">
     
     <ltng:require styles="/resource/slds0121/assets/styles/salesforce-lightning-design-system.css"/>
@@ -8,11 +10,15 @@
     
     <!--design attributes, for the app/community builders-->
     <aura:attribute name="pathField" type="string" required="true" default="Status"/>
-    <aura:attribute name="clickToChange" type="boolean" required="true" default="Status"/>
+    <aura:attribute name="clickToChange" type="boolean" required="true" default="false"/>
+    <aura:attribute name="listenForChange" type="boolean" required="true" default="false"/>
     
     <!--change handlers-->
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
-	    
+
+    <!--event handling-->
+    <aura:handler event="c:StreamerEvent" action="{!c.listener}"/>
+	   
     <div class="slds-tabs--path slds-p-around--small" role="application tablist">
         <ul class="slds-tabs--path__nav" role="presentation">
             <aura:iteration items="{!v.pathObjects}" var="step">
@@ -27,4 +33,6 @@
             </aura:iteration>            
         </ul>        
     </div>
+
+    {!v.body}
 </aura:component>

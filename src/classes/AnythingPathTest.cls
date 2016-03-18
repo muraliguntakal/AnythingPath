@@ -29,6 +29,16 @@ public class AnythingPathTest {
         map<String, string> output = AnythingPath.getPicklistOptions(c2.Id, 'Status', 'Case');
         system.debug(output);
     }
+
+    @isTest static void testNonExistentTopic(){
+        string topicName = AnythingPath.dynamicTopic('Case', 'Status');
+    }
+
+    //runs the code twice so that the "it exists" version gets fired
+    @isTest static void testExistingTopic(){
+        string topicName = AnythingPath.dynamicTopic('Case', 'Status');
+        topicName = AnythingPath.dynamicTopic('Case', 'Status');
+    }
     
     @testSetup static void methodName() {
         case c = new case();

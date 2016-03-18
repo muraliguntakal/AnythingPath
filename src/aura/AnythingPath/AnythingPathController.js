@@ -33,10 +33,55 @@
             //component.set(v.currentIndex, a.getReturnValue())
         });
         $A.enqueueAction(getOptions);        
+
+        //do some streaming API subscribe stuff
+        if (component.get("v.listenForChange")){
+            console.log('going to get topic');
+
+            var getTopic = component.get("c.dynamicTopic");
+            //public static String dynamicTopic(String WhichObject, String Field) {
+
+            getTopic.setParams({
+                "WhichObject" : component.get("v.sObjectName"), 
+                "Field" : component.get("v.pathField")
+            });
+            getTopic.setCallback(this, function(a){
+
+                //create a streamer dynamically with given topicName
+                var topicName = a.getReturnValue();
+                console.log(topicName);
+
+                //TODO: dealing with failure!
+                $A.createComponent(
+                    "c:Streamer", 
+                    {"topic" : topicName },
+                    function (topicAdded){
+                        if (component.isValid()) {
+                            var body = component.get("v.body");
+                            body.push(topicAdded);
+                            component.set("v.body", body);
+                        }
+                    }
+                );
+            });
+            $A.enqueueAction(getTopic);
+
+        }
     },
     
     listener : function(component, event, helper) {
         console.log('heard an event');
+        var message = event.getParam("message");
+        var recordId = message.data.sobject.Id;
+        var value = message.data.sobject[component.get("v.pathField")];
+
+        if (recordId == component.get("v.recordId")){
+            console.log("I care about this update: " + message.data.sobject);
+            console.log(recordId + " : " + value);
+
+            component.set("v.currentValue", value);
+            helper.buildPath(component);
+        }
     },
     
     //updates the field
