@@ -1,5 +1,21 @@
 public class AnythingPath {
 
+    @AuraEnabled
+    public static string query(String soql) {
+        return JSON.serialize(Database.query(soql));
+    }
+
+    @AuraEnabled
+    public static void updateField(id recordId, string Field, string newValue){
+        system.debug(' in the update function');
+        Schema.SObjectType sobjectType = recordId.getSObjectType();
+        String sobjectName = sobjectType.getDescribe().getName();
+
+        SObject record = Database.query('Select Id, ' + Field + ' From ' + sobjectName + ' Where Id = \'' + recordId + '\'');
+        record.put(Field, newValue);
+        update record;
+    }
+
     //returns the object itself with the correct fields
     @AuraEnabled
     public static string getCurrentValue(string recordId, string picklistField, string sObjectName){
@@ -20,8 +36,17 @@ public class AnythingPath {
     @AuraEnabled
     public static map<String, string> getPicklistOptions(string recordId, string picklistField, string sObjectName){
         map<string, string> output = new map<string, string>();
-        
-        Schema.sobjectType objType = Id.valueOf(recordId).getSobjectType();
+        Schema.sobjectType objType;
+
+        //what an ugly hack this is, in the name of reusability!
+        if (recordId == null){
+            string query = 'Select Id from ' + sObjectName + ' limit 1';
+            system.debug(query);
+            list<sobject> example = Database.query(query);
+            recordId = string.valueOf(example[0].get('Id'));
+        } 
+
+        objType = Id.valueOf(recordId).getSobjectType();            
         Schema.DescribeSObjectResult dsr  = objType.getDescribe();
         map<string, Schema.SObjectField> fieldMap = dsr.fields.getMap();
         Schema.DescribeFieldResult dfr = fieldmap.get(picklistField).getDescribe();
@@ -32,6 +57,7 @@ public class AnythingPath {
         }
         return output;
     }
+
 
     //for using the streaming API
     //returns the topic name for this component, creating it if necessary

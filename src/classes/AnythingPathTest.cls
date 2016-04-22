@@ -1,6 +1,19 @@
 @isTest
 public class AnythingPathTest {
     
+    @isTest 
+    private static void testQuery(){
+        string result =  AnythingPath.query('select id from Case where subject = \'your software sucks\'');
+    }
+
+    @isTest 
+    private static void testUpdate(){
+        //public static void updateField(id recordId, string Field, string newValue){
+        list<Case> CaseList = [select Id, Status from Case];        
+        AnythingPath.updateField(Caselist[0].id, 'Status', 'Closed');
+    }
+
+
     @isTest
     private static void test1(){
         case c2 = [select id from case where subject = 'your software sucks'];
@@ -21,7 +34,7 @@ public class AnythingPathTest {
     }
     
     @isTest
-    private static void test3(){
+    private static void testGetPicklistWithId(){
         //    public static map<String, string> getPicklistOptions(string recordId, string picklistField, string sObjectName){
         case c2 = [select id from case where subject = 'your software sucks'];
         system.debug(c2);
@@ -29,6 +42,18 @@ public class AnythingPathTest {
         map<String, string> output = AnythingPath.getPicklistOptions(c2.Id, 'Status', 'Case');
         system.debug(output);
     }
+
+    @isTest
+    private static void testGetPicklistWithoutId(){
+        //    public static map<String, string> getPicklistOptions(string recordId, string picklistField, string sObjectName){
+        case c2 = [select id from case where subject = 'your software sucks'];
+        system.debug(c2);
+        
+        map<String, string> output = AnythingPath.getPicklistOptions(null, 'Status', 'Case');
+        system.debug(output);
+    }
+
+
 
     @isTest static void testNonExistentTopic(){
         string topicName = AnythingPath.dynamicTopic('Case', 'Status');

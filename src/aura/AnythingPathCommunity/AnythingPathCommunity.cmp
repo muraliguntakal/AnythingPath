@@ -18,9 +18,9 @@
             <aura:iteration items="{!v.pathObjects}" var="step">
                 <li class="{!'slds-tabs--path__item slds-' + step.statusClass}" role="presentation">
                     <a class="slds-tabs--path__link" aria-selected="{!step.ariaSelected}" tabindex="{!step.tabIndex}" role="tab" aria-live="assertive"  >
-                        <c:svgIcon containerClass="slds-tabs--path__stage" svgPath="/resource/slds0121/assets/icons/utility-sprite/svg/symbols.svg#check" category="utility" size="x-small" name="check">
+                        <c:ShanesvgIcon containerClass="slds-tabs--path__stage" svgPath="/resource/slds0121/assets/icons/utility-sprite/svg/symbols.svg#check" category="utility" size="x-small" name="check">
                             <span class="slds-assistive-text">Stage Complete</span>
-                        </c:svgIcon>
+                        </c:ShanesvgIcon>
                         <span class="slds-tabs--path__title" title="{!step.value}" onclick="{!c.handleClick}">{!step.label}</span>
                     </a>
                 </li>
