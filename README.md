@@ -4,6 +4,10 @@ Now includes AnythingBoard (kanban-like drag and drop for custom object status).
 
 Tongue-in-cheek [demo video](https://www.youtube.com/watch?v=Zoqll5THApU) that was done for internal Salesforce humor.
 
+<a href="https://githubsfdeploy.herokuapp.com?owner=mshanemc&repo=AnythingPath">
+  <img alt="Deploy to Salesforce"
+       src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/src/main/webapp/resources/img/deploy.png">
+</a>
 
 ##AnythingPath
 
