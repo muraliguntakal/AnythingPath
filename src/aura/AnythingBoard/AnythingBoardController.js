@@ -58,8 +58,8 @@
 	            //take the <ul> and make them into Dragula containers
 	            // AND set the target function
 	            var DBs = [].slice.call(document.querySelectorAll(".dragulaBox"));
-	            dragula(DBs).on("drop", function (el, target){
-	            	
+	            dragula(DBs).on("drop", $A.getCallback(function (el, target){
+	            	console.log("getting dropped");
 	            	//public static boolean updateField(id recordId, string Field, string newValue){            	
 	            	updateCall.setParams({
 	            		"recordId" : el.id,
@@ -70,10 +70,11 @@
 	            		console.log(a.getReturnValue());
 	            	});
 					
-					$A.run(function(){
-						$A.enqueueAction(updateCall)
-					});
-	            });            	
+					
+                    if (component.isValid()){
+                        $A.enqueueAction(updateCall)
+                    }
+	            }));            	
             }
         });
 

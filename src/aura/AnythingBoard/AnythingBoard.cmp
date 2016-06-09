@@ -1,28 +1,31 @@
-<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" controller="AnythingPath">
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" controller="AnythingPath" access="global">
 
-	<ltng:require styles="/resource/slds0121/assets/styles/salesforce-lightning-design-system.css"/>
+	<!-- <ltng:require styles="/resource/anythingSLDS201/assets/styles/salesforce-lightning-design-system.css"/> -->
 
 	<ltng:require scripts="/resource/lodash,/resource/dragula" styles="/resource/dragulacss" afterScriptsLoaded="{!c.doInit}"/>
 
 	<!--internal attributes-->
-	<aura:attribute name="stepWidthOverride" type="integer" required="false"/>
-	<aura:attribute name="soql" type="string" />
-	<aura:attribute name="width" type="string" default="100%"/>
+	<aura:attribute name="stepWidthOverride" type="integer" required="false" access="global"/>
+	<aura:attribute name="soql" type="string" access="global"/>
+	<aura:attribute name="width" type="string" default="100%" access="global"/>
+	<aura:attribute name="options" type="object" />
+	<aura:attribute name="displayFieldsArray" type="object[]" />
+	<aura:attribute name="recordId" type="string"/>
 
 
 	<!--design attributes, for the app/community builders-->
-	<aura:attribute name="displayFields" type="string" default="CaseNumber, Subject, Origin" />
-	<aura:attribute name="excludePicklistValuesFromTiles" type="string" default=""/>
-	<aura:attribute name="excludePicklistValuesFromBoard" type="string" default="Closed in Community" />
+	<aura:attribute name="displayFields" type="string" default="CaseNumber, Subject, Origin" access="global"/>
+	<aura:attribute name="excludePicklistValuesFromTiles" type="string" default="" access="global"/>
+	<aura:attribute name="excludePicklistValuesFromBoard" type="string" default="Closed in Community" access="global"/>
 
-	<aura:attribute name="sObjectName" type="string" default="Case"/>
-	<aura:attribute name="pathField" type="string" required="true" default="Status"/>
-	<aura:attribute name="dragToChange" type="boolean" required="true" default="true"/>
+	<aura:attribute name="sObjectName" type="string" default="Case" access="global"/>
+	<aura:attribute name="pathField" type="string" required="true" default="Status" access="global"/>
+	<aura:attribute name="dragToChange" type="boolean" required="true" default="true" access="global"/>
 
 	<div class="slds-grid" style="{!'width: ' + v.width}">
 		<aura:iteration items="{!v.options}" var="step">
 			<div class="slds-col slds-box" >
-				<h3 class="slds-section-title--divider">{!step.name}</h3>
+				<h3 class="slds-section-title--divider slds-truncate">{!step.name}</h3>
 				
 				<ul class="slds-list--vertical slds-has-cards--space has-selections dragulaBox" id="{!step.value}">
 					<!-- for each record within that step -->

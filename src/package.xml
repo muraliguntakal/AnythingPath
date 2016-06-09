@@ -3,6 +3,10 @@
     <types>
         <members>AnythingPath</members>
         <members>AnythingPathTest</members>
+        <members>PowerRelatedListCtrl</members>
+        <members>PowerRelatedListCtrlTest</members>
+        <members>StreamerCtrl</members>
+        <members>StreamerCtrlTest</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -11,6 +15,11 @@
     </types>
     <types>
         <members>SLDS0121</members>
+        <members>anythingSLDS201</members>
+        <members>dragula</members>
+        <members>dragulaCSS</members>
+        <members>lodash</members>
+        <members>streaming</members>
         <name>StaticResource</name>
     </types>
     <version>34.0</version>
