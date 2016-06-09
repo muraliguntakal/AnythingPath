@@ -3,12 +3,21 @@
     <types>
         <members>AnythingPath</members>
         <members>AnythingPathTest</members>
-        <members>PowerRelatedListCtrl</members>
-        <members>PowerRelatedListCtrlTest</members>
         <members>StreamerCtrl</members>
         <members>StreamerCtrlTest</members>
         <name>ApexClass</name>
     </types>
+    <types>
+         <members>AnythingBoard</members>
+         <members>AnythingPath</members>
+         <members>AnythingPathCommunity</members>
+         <members>AnythingPathChange</members>
+         <members>ShaneSVGIcon</members>
+         <members>Streamer</members>
+         <members>StreamerEvent</members>
+         <name>AuraDefinitionBundle</name>
+    </types>
+
     <types>
         <members>*</members>
         <name>AuraDefinitionBundle</name>
