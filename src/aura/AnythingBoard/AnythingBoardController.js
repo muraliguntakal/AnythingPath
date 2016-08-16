@@ -87,7 +87,7 @@
         getOptions.setParams(params);
 
         getOptions.setCallback(self, function(a){
-            var rawOptions = a.getReturnValue()
+            var rawOptions = a.getReturnValue();
             helper.buildEmptyTree(component, rawOptions);
         	$A.enqueueAction(getRecords);	            
         });

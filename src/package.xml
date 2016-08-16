@@ -8,16 +8,17 @@
         <name>ApexClass</name>
     </types>
     <types>
-         <members>AnythingBoard</members>
-         <members>AnythingPath</members>
-         <members>AnythingPathCommunity</members>
-         <members>AnythingPathChange</members>
-         <members>ShaneSVGIcon</members>
-         <members>Streamer</members>
-         <members>StreamerEvent</members>
-         <name>AuraDefinitionBundle</name>
-    </types>    
+        <members>AnythingBoard</members>
+        <members>AnythingPath</members>
+        <members>AnythingPathChange</members>
+        <members>AnythingPathCommunity</members>
+        <members>ShaneSVGIcon</members>
+        <members>Streamer</members>
+        <members>StreamerEvent</members>
+        <name>AuraDefinitionBundle</name>
+    </types>
     <types>
+        <members>APABLodash</members>
         <members>SLDS0121</members>
         <members>anythingSLDS201</members>
         <members>dragula</members>
@@ -26,5 +27,5 @@
         <members>streaming</members>
         <name>StaticResource</name>
     </types>
-    <version>34.0</version>
+    <version>37.0</version>
 </Package>

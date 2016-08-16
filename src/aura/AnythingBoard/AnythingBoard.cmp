@@ -2,7 +2,7 @@
 
 	<!-- <ltng:require styles="/resource/anythingSLDS201/assets/styles/salesforce-lightning-design-system.css"/> -->
 
-	<ltng:require scripts="/resource/lodash,/resource/dragula" styles="/resource/dragulacss" afterScriptsLoaded="{!c.doInit}"/>
+	<ltng:require scripts="{!join($Resource.APABLodash, $Resource.dragula)}" styles="{!$Resource.dragulaCSS}" afterScriptsLoaded="{!c.doInit}"/>
 
 	<!--internal attributes-->
 	<aura:attribute name="stepWidthOverride" type="integer" required="false" access="global"/>
@@ -11,7 +11,6 @@
 	<aura:attribute name="options" type="object" />
 	<aura:attribute name="displayFieldsArray" type="object[]" />
 	<aura:attribute name="recordId" type="string"/>
-
 
 	<!--design attributes, for the app/community builders-->
 	<aura:attribute name="displayFields" type="string" default="CaseNumber, Subject, Origin" access="global"/>

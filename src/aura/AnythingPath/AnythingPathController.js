@@ -15,6 +15,9 @@
         getValue.setParams(params);
         getValue.setCallback(this, function(a){
             console.log(a.getReturnValue());
+            if (!a.getReturnValue()){
+                component.set("v.badField", true);
+            }
             component.set("v.currentValue", a.getReturnValue());
             component.set("v.valueDone", true);
             helper.buildPath(component, event, helper);
