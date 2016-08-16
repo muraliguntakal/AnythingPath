@@ -21,16 +21,17 @@ Tongue-in-cheek [demo video](https://www.youtube.com/watch?v=Zoqll5THApU) that w
 * have a whole bunch of use within Salesforce
 * display errors, including validation rule errors
 * update the path if you do "edit" on the record detail (except in communities, where there's no streaming API)
+* verify that your field in app builder is actually a field, and shows an angry red error message if the field isn't found :)
 
 ###Doesn't
 
 * verify that it's actually a picklist field
-* verify that it's actually a field at all :)
 * deal with record types where only some picklist values are there
 * have the fields or "guidance for success" stuff that real sales path has
 * come with any guarantees from Salesforce or support from me.  Treat this as code you found laying beside the road.
 
 ##AnythingBoard
+
 ###Does
 
 * show the stags, in the order of the picklist
