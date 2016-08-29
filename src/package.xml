@@ -23,7 +23,6 @@
         <members>anythingSLDS201</members>
         <members>dragula</members>
         <members>dragulaCSS</members>
-        <members>lodash</members>
         <members>streaming</members>
         <name>StaticResource</name>
     </types>
