@@ -17,6 +17,8 @@
             console.log(a.getReturnValue());
             if (!a.getReturnValue()){
                 component.set("v.badField", true);
+            } else {
+                component.set("v.badField", false);
             }
             component.set("v.currentValue", a.getReturnValue());
             component.set("v.valueDone", true);

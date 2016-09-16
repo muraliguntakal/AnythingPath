@@ -3,6 +3,8 @@
     <types>
         <members>AnythingPath</members>
         <members>AnythingPathTest</members>
+        <members>GuidanceBox</members>
+        <members>GuidanceBoxTest</members>
         <members>StreamerCtrl</members>
         <members>StreamerCtrlTest</members>
         <name>ApexClass</name>
@@ -12,6 +14,7 @@
         <members>AnythingPath</members>
         <members>AnythingPathChange</members>
         <members>AnythingPathCommunity</members>
+        <members>GuidanceBox</members>
         <members>ShaneSVGIcon</members>
         <members>Streamer</members>
         <members>StreamerEvent</members>

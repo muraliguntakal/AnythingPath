@@ -3,7 +3,7 @@
     <!--removed since LEX contains SLDS by default.  SLDS 2.0.1 is included, uncomment if somehow used outside S1/LEX     
     <ltng:require scripts="/resource/lodash" styles="/resource/anythingSLDS201/assets/styles/salesforce-lightning-design-system.css" />
  -->
-    <ltng:require scripts="{!$Resource.APABLodash}"/>
+    <ltng:require scripts="{!$Resource.APABLodash}" afterScriptsLoaded="{!c.doInit}"/>
     
     <!--internal attributes-->
     <aura:attribute name="recordId" type="Id"/>
@@ -21,7 +21,6 @@
     <aura:attribute name="listenForChange" type="boolean" required="true" default="false"/>
     
     <!--change handlers-->
-    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:registerEvent name="AnythingPathChange" type="c:AnythingPathChange"/>
     <!--event handling-->
     <aura:handler event="c:StreamerEvent" action="{!c.listener}"/>
