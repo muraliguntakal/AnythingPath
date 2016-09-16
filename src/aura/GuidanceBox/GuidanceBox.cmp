@@ -1,0 +1,24 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName" access="global" controller="GuidanceBox">
+    
+    <aura:attribute name="sObjectName" type="string" />
+    <aura:attribute name="field" type="string" required="true" />
+    <aura:attribute name="useRecordTypes" type="boolean" default="false"/>
+    <aura:attribute name="guidances" type="GuidanceBox__c[]" />
+    <aura:attribute name="title" type="string" default="Smart Advice"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>   
+
+    <aura:handler event="c:StreamerEvent" action="{!c.listener}"/>
+    
+    <aura:if isTrue="{!v.guidances.length>0}">
+        <div class="slds-box slds-theme--shade">
+            <div class="slds-text-title--caps slds-text-heading--label slds-p-bottom--small slds-has-divider--bottom">{!v.title}</div>
+            <div class="slds-text-longform slds-p-top--medium">
+                <aura:iteration items="{!v.guidances}" var="guidance">
+                    <aura:unescapedHTML value="{!guidance.Guidance__c}"/>
+                </aura:iteration>
+            </div>
+        </div>
+    </aura:if>
+    
+</aura:component>
