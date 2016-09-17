@@ -120,8 +120,6 @@
                         var errors = doUpdate.getError();
                         console.log(errors)
                         if (errors) {
-                            //iterate the errors!
-                            //TODO: duplicate rules errors ?
                             _.forEach(errors[0].pageErrors, function(value, key){
                                 var toastEvent = $A.get("e.force:showToast");
                                 toastEvent.setParams({
