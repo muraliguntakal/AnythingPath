@@ -21,6 +21,10 @@
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
+        <members>GuidanceBox__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
         <members>APABLodash</members>
         <members>SLDS0121</members>
         <members>anythingSLDS201</members>
