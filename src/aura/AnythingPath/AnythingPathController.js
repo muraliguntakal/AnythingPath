@@ -1,6 +1,6 @@
 ({
     doInit : function(component, event, helper) {
-        console.log('doing init');
+        //console.log('doing init');
         var getValue = component.get("c.getCurrentValue");
         var getOptions = component.get("c.getPicklistOptions");
         
@@ -10,7 +10,7 @@
             "sObjectName" : component.get("v.sObjectName")            
         };
         
-        console.log(params);
+        //console.log(params);
         
         getValue.setParams(params);
         getValue.setCallback(this, function(a){
@@ -29,7 +29,7 @@
         
         getOptions.setParams(params);
         getOptions.setCallback(this, function(a){
-            console.log(a.getReturnValue());
+            //console.log(a.getReturnValue());
             component.set("v.options", a.getReturnValue());
             component.set("v.picklistDone", true);
             helper.buildPath(component, event, helper);
@@ -41,7 +41,7 @@
 
         //do some streaming API subscribe stuff
         if (component.get("v.listenForChange")){
-            console.log('going to get topic');
+            //console.log('going to get topic');
 
             var getTopic = component.get("c.dynamicTopic");
             //public static String dynamicTopic(String WhichObject, String Field) {
@@ -54,15 +54,15 @@
 
                 //create a streamer dynamically with given topicName
                 var topicName = a.getReturnValue();
-                console.log(topicName);
+                //console.log(topicName);
 
                 //TODO: dealing with failure!
                 $A.createComponent(
                     "c:Streamer", 
                     {"topic" : topicName },
                     function (topicAdded, status){
-                        console.log("trying to create streamer");
-                        console.log(status);
+                        //console.log("trying to create streamer");
+                        //console.log(status);
 
                         if (component.isValid()) {
                             var body = component.get("v.body");
@@ -84,8 +84,8 @@
             var value = message.data.sobject[component.get("v.pathField")];
 
             if (recordId == component.get("v.recordId")){
-                console.log("I care about this update: " + message.data.sobject);
-                console.log(recordId + " : " + value);
+                //console.log("I care about this update: " + message.data.sobject);
+                //console.log(recordId + " : " + value);
 
                 component.set("v.currentValue", value);
                 helper.buildPath(component);
@@ -99,7 +99,7 @@
         
         //if you're allowed to change a value
         if (component.get("v.clickToChange")){
-            console.log('changing value');
+            //console.log('changing value');
             
             //actually make the change
             //    public static void setNewValue(string recordId, string picklistField, string newValue){            

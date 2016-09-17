@@ -30,6 +30,21 @@ Tongue-in-cheek [demo video](https://www.youtube.com/watch?v=Zoqll5THApU) that w
 * have the fields or "guidance for success" stuff that real sales path has
 * come with any guarantees from Salesforce or support from me.  Treat this as code you found laying beside the road.
 
+===
+
+##GuidanceBox
+
+GuidanceBox provides the "Guidance for Success" to immitate Sales Path.  Behind it is a custom object with a rich text field for guidance, along with text fields for
+
+* what object the guidance should show up on
+* what field drives the guidance
+* what value the guidance matches
+* optionally, what recordTypeId the guidance is for (in case different record types have different guidance at the same field/value)
+
+There's a simple lightning component to drag onto your record detail page.  If no guidance exists for the given object/field/recordtype, the component just hides itself.
+
+===
+
 ##AnythingBoard
 
 ###Does

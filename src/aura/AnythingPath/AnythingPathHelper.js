@@ -2,13 +2,13 @@
     buildPath : function(component, event){
         //do we have both prerequisites?
         if (!component.get("v.picklistDone") || !component.get("v.picklistDone")){
-            console.log('not ready yet');
+            //console.log('not ready yet');
             return;
         }
         
         var options = [];
         var originalOptions = component.get("v.options");
-        console.log(originalOptions);
+        //console.log(originalOptions);
         var currentValue = component.get("v.currentValue");
         
         var counter=0;
@@ -34,21 +34,14 @@
                     //option.tabIndex = 0;
                     foundCurrent = true;
 
-                    //fire the change event
-                    var appEvent = $A.get("e.c:AnythingPathChange");
-                    appEvent.setParams({ 
-                        "newValue" : option.label,
-                        "recordId" : component.get("v.recordId"),
-                        "picklistField" : component.get("v.pathField"),
-                    });
-                    appEvent.fire();
+                    
                 }
 
                 options.push(option);
                 counter = counter + 1;
             }             
         }
-        console.log(options);
+        //console.log(options);
         component.set("v.pathObjects", options);
     }
 })

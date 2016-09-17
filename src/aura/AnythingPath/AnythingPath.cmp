@@ -21,7 +21,7 @@
     <aura:attribute name="listenForChange" type="boolean" required="true" default="false"/>
     
     <!--change handlers-->
-    <aura:registerEvent name="AnythingPathChange" type="c:AnythingPathChange"/>
+    <!--aura:registerEvent name="AnythingPathChange" type="c:AnythingPathChange"/-->
     <!--event handling-->
     <aura:handler event="c:StreamerEvent" action="{!c.listener}"/>
     
@@ -31,9 +31,7 @@
                 <aura:iteration items="{!v.pathObjects}" var="step">
                     <li class="{!'slds-tabs--path__item slds-' + step.statusClass}" role="presentation">
                         <a class="slds-tabs--path__link" aria-selected="{!step.ariaSelected}" tabindex="{!step.tabIndex}" role="tab" aria-live="assertive"  title="{!step.value}" onclick="{!c.handleClick}">
-                            <c:ShaneSVGIcon containerClass="slds-tabs--path__stage" svgPath="/resource/anythingSLDS201/assets/icons/utility-sprite/svg/symbols.svg#check" category="utility" size="x-small" name="check">
-                                <span class="slds-assistive-text">Stage Complete</span>
-                            </c:ShaneSVGIcon>
+                            <lightning:icon iconName="utility:check" size="x-small" alternativeText="Stage Complete" class="slds-tabs--path__stage"/>
                             <span class="slds-tabs--path__title" title="{!step.value}">{!step.label}</span>
                         </a>
                     </li>
