@@ -26,10 +26,6 @@
 				if (DFAvalue.indexOf(".")>0){
 					var splitDFA = DFAvalue.split(".");
 					//handling relationship queries
-
-					console.log(splitDFA[0]);
-					console.log(splitDFA[1]);
-
 					records[key].displayFields.push(records[key][splitDFA[0]][splitDFA[1]]);
 				} else {
 					//simple fields
@@ -38,7 +34,7 @@
 			})
 		});
 
-		console.log(records);
+		//console.log(records);
 
 		var tree = component.get("v.options");
 		var grouped = _.groupBy(records, component.get("v.pathField"));
@@ -61,9 +57,9 @@
 			dragula(DBs, {
 				revertOnSpill: true
 			}).on("drop", $A.getCallback(function (el, target, source){
-				console.log("getting dropped");
-				console.log(source);
-				console.log(el);
+				//console.log("getting dropped");
+				//console.log(source);
+				//console.log(el);
 
 
 				//public static boolean updateField(id recordId, string Field, string newValue){            	
@@ -91,7 +87,7 @@
 							newParent.appendChild(child);
 
 							var errors = a.getError();
-							console.log(errors)
+							//console.log(errors)
 							if (errors) {
 								//iterate the errors!
 								//TODO: duplicate rules errors ?
@@ -146,10 +142,10 @@
 },
 
 navToRecord : function(component, event){
-	console.log("nav invoked, get id first");
+	//console.log("nav invoked, get id first");
 
 	var recordId = event.target.value;
-	console.log(recordId);
+	//console.log(recordId);
 
 	var navEvt = $A.get("e.force:navigateToSObject");
 	navEvt.setParams({

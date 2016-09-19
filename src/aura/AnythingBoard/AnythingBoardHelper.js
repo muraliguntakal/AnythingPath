@@ -1,7 +1,6 @@
 ({
 	buildSoql : function(component) {
 		var field = component.get("v.pathField");
-		var objectType = component.get("v.sObjectName");
 
 		var displayFields = component.get("v.displayFields");
 		var exclude1 = component.get("v.excludePicklistValuesFromTiles");
@@ -12,7 +11,7 @@
 		var queryFields = _.join(_.union(displayFieldsArray, [field], ["Id"]), ", ");
 
 
-		var soql = "select " + queryFields + " from " + objectType; 
+		var soql = "select " + queryFields + " from " + component.get("v.sObjectName"); 
 
 		//checking for any exclusion		
 		if ((exclude1 != null && exclude1 != '') || (exclude2 != null && exclude2 != '')){
@@ -28,12 +27,12 @@
 			var excludeString = _.union(excludeString1, excludeString2);
 
 			excludeString = "'" + excludeString.join("', '") + "'";
-			console.log(excludeString);
+			//console.log(excludeString);
 
 			soql = soql + " where " + field + " NOT IN (" + excludeString + ")"
 		}
 		
-		console.log(soql);
+		//console.log(soql);
 
 		component.set("v.soql", soql);
 			
@@ -50,12 +49,12 @@
 
 			if (excludeString != null && excludeString != ''){
 				excludeString = this.CSL2Array(excludeString);
-				console.log(excludeString);
+				//console.log(excludeString);
 
 				_.forEach(excludeString, function(value, key){
 					delete rawOptions[value];
 				})
-				console.log(rawOptions);
+				//console.log(rawOptions);
 			}
 
 
@@ -75,7 +74,7 @@
 	},
 
 	buildDisplayFieldsArray: function (component){
-		console.log("buildind DFA");
+		//console.log("buildind DFA");
 		component.set("v.displayFieldsArray", this.CSL2Array(component.get("v.displayFields")));
 	},
 

@@ -28,6 +28,7 @@
         
         
         getOptions.setParams(params);
+        getOptions.setStorable();
         getOptions.setCallback(this, function(a){
             //console.log(a.getReturnValue());
             component.set("v.options", a.getReturnValue());
